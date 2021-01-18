@@ -1,6 +1,10 @@
 #%%
 
 def randInt(min=0, max=100):
+    if (min < max):
+        min = max - 1
+    if (max < 0):
+        max = min + 1
     import random
     num = random.random() * (max - min) + min
     return int(num)
