@@ -81,6 +81,7 @@ iterateDictionary2('first_name',students)
 iterateDictionary2('last_name',students)
 #%%
 
+
 #%%
 # 4.  Iterate Through a Dict with List Values
 # Create a function printInfo(some_dict) that given a dictionary whose values 
@@ -112,8 +113,12 @@ dojo = {
 # Devon
 
 def printInfo(some_dict):
-    print((len(some_dict['locations'])), "LOCATIONS\n", some_dict['locations'])
-    print((len(some_dict['instructors'])), "INSTRUCTORS\n", some_dict['instructors'])
+    for key in dojo.keys():
+        for val in key:
+            print(key, ": ", val)
+        
+
+# print((len(some_dict['instructors'])), "INSTRUCTORS\n", some_dict['instructors'])
     
 printInfo(dojo)
 # %%

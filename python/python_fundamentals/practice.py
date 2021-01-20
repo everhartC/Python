@@ -141,3 +141,32 @@ bird = {
 for thing in bird:
     print(thing, bird[thing])
 # %%
+player = {'first_name': 'Michael', 'last_name': 'Jordan'}
+
+students = ['a', 'b', 'c', 'd']
+# Indices    0    1    2    3
+
+#
+# IN JavaScript
+# if(bird['feathers'] == 'blue'){
+#       console.log('it's a blue bird")}
+
+# PYTHON
+# 
+# pl = list(player)
+# #print(pl)
+
+# my_list = [1,2,3,4,5,6,7,8,]
+
+# for i in range(len(my_list)):
+#     print(my_list[i])
+
+bird = {
+    'feathers':'blue',
+    'wings':2,
+    'name':'floppy',
+    'friends': ["Tom", "Tweety", "Woodie"]
+}
+
+for thing in bird:
+    print(thing, bird['friends'])
