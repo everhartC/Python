@@ -19,7 +19,7 @@ def detectImages(imgPath):
             (0, 255, 0),
             2
         )
-
+    
     cv.imshow('Image', original_img)
     cv.waitKey(0)
     cv.destroyAllWindows()
