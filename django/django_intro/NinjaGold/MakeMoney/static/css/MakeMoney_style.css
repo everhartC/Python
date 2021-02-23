@@ -1,0 +1,85 @@
+* {
+    /* margin: 0px;
+    padding: 0px; */
+    /* outline: red dotted 2px; */
+}
+
+#container {
+    width: 800px;
+    height: 500px;
+    padding: 50px;
+}
+
+#goldcounter {
+    border: solid black 1px;
+    width: 200px;
+    text-align: left;
+    padding: 10px;
+    margin: 0 auto;
+}
+.places {
+    /* outline: solid black 1px; */
+    display: inline-block;
+    width: 90%;
+    padding: 10px 5% 10px 5%;
+}
+input {
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    vertical-align: bottom;
+}
+#farm {
+    display: inline-block;
+    height: 150px;
+    width: 20%;
+    vertical-align: top;
+    border: 2px groove gray;
+    margin-right: 35px;
+}
+#cave {
+    display: Inline-block;
+    height: 150px;
+    width: 20%;
+    vertical-align: top;
+    border: 2px groove grey;
+    margin-right: 35px;
+}
+#house { 
+    display: Inline-block;
+    height: 150px;
+    width: 20%;
+    vertical-align: top;
+    border: 2px groove grey;
+    margin-right: 35px;
+}
+#casino {
+    display: Inline-block;
+    height: 150px;
+    width: 20%;
+    vertical-align: top;
+    border: 2px groove grey;
+}
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    padding-top: 20px;
+}
+h4 {
+    text-align: center;
+    font-size: .8em;
+}
+#act {
+    border: 2px groove gray;
+    display: Inline-block;
+    height: 200px;
+    width: 800px;
+    text-align: left;
+    /* overflow:hidden; */
+    vertical-align: bottom
+}
+.reset {
+    display: inline-block;
+}
+
