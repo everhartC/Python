@@ -1,0 +1,18 @@
+.container {
+    outline: 1px solid black;
+    outline-offset: 5px;
+}
+
+.container h1 {
+    text-decoration: underline;
+}
+
+.container h3 {
+    font-weight: bold;
+    display: block;
+}
+
+.container h3 > p {
+    font-weight: normal;
+    display: inline;
+}

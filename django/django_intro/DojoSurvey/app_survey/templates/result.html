@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+</head>
+<body>
+    <div class='container'>
+        <h1>Submitted Info</h1>
+        <h3>Name: <p>{{result.user_name}}</p></h3>
+        <h3>Location: <p>{{result.location}}</p></h3>
+        <h3>Favorite Language: <p>{{result.fav_lang}}</p></h3>
+        <h3>Comments: <p>{{result.comments}}</p></h3>
+    </div>
+    <button onclick="location.href = '/'">Go Back</button>
+</body>
+</html>
