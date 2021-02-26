@@ -1,0 +1,44 @@
+>>> dojo1 = Dojo.objects.create(name="Judo",city="Camarillo", state="CA")
+>>> dojo2 = Dojo.objects.create(name="BJJ",city="Camarillo", state="CA")
+>>> dojo3 = Dojo.objects.create(name="Karate",city="Thousand Oaks", state="CA")
+
+>>> dojo1.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> dojo2.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+>>> dojo3.delete()
+(1, {'dojo_ninjas_app.Dojo': 1})
+
+>>> dojo1 = Dojo.objects.create(name="Judo",city="Camarillo", state="CA")
+>>> dojo2 = Dojo.objects.create(name="BJJ",city="Camarillo", state="CA")
+>>> dojo3 = Dojo.objects.create(name="Karate",city="Thousand Oaks", state="CA")
+
+>>> ninja1d1 = Ninja.objects.create(dojo=dojo1, first_name="Cameron", last_name="Everhart")
+>>> ninja1d1.save()
+>>> dojo1.save()
+>>> dojo2.save()
+>>> dojo3.save()
+>>> ninja3d1 = Ninja.objects.create(dojo=dojo1, first_name="Harry", last_name="Schwetty")
+>>> ninja3d1.save()
+>>> ninja2d1 = Ninja.objects.create(dojo=dojo1, first_name="Mike", last_name="Roundhouse")
+>>> ninja2d1.save()
+>>> ninja1d2 = Ninja.objects.create(dojo=dojo2, first_name="Fist", last_name="Havoc")
+>>> ninja1d2.save()
+>>> ninja2d2 = Ninja.objects.create(dojo=dojo2, first_name="Iron", last_name="Fist")
+>>> ninja2d2.save()
+>>> ninja3d2 = Ninja.objects.create(dojo=dojo2, first_name="Johnny", last_name="Cage")
+>>> ninja3d2.save()
+>>> ninja1d3 = Ninja.objects.create(dojo=dojo3, first_name="Tina", last_name="Smash")
+>>> ninja1d3.save()
+>>> ninja2d3 = Ninja.objects.create(dojo=dojo3, first_name="Regina", last_name="Squeeze")
+>>> ninja2d3.save()
+>>> ninja3d3 = Ninja.objects.create(dojo=dojo3, first_name="Jack", last_name="Daniel-son")
+>>> ninja3d3.save()
+
+dojo1_ninjas = Ninja.objects.filter(dojo=dojo1)
+
+ninjas_lastDojo = Ninja.objects.filter(dojo=dojo3)
+
+lastNinja_dojo = ninja3d3.dojo
+
+Dojo.objects.create(name=new_dojo, city=Dojoville, state=New Dojo, desc=This is a new Dojo in the city of Dojoville, state of New Dojo
