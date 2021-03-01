@@ -1,0 +1,31 @@
+c = Books.objects.get(id=1)
+c.title = 'C Sharp'
+
+a4 = Authors.objects.get(id=4)
+a4.fname = "Bill"
+
+b1 = Books.objects.get(id=1)
+b2 = Books.objects.get(id=2)
+a1 = Authors.objects.get(id=1)
+a1.books.add(b1,b2)
+
+a2 = Authors.objects.get(id=2)
+a3 = Authors.objects.get(id=3)
+a4 = Authors.objects.get(id=4)
+a5 = Authors.objects.get(id=5)
+b3 = Books.objects.get(id=3)
+b4 = Books.objects.get(id=4)
+b5 = Books.objects.get(id=5)
+a2.books.add(b1,b2,b3)
+
+a3.books.add(b1,b2,b3,b4)
+a4.books.add(b1,b2,b3,b4,b5)
+
+b3.authors.all()
+b3.authors.remove(1)
+
+b2.authors.add(a5)
+
+a3.books.all()
+
+b5.authors.all()
