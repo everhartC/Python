@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Author</th>
+            <th>Message</th>
+        </thead>
+        <tbody>
+            {% for message in Messages %}
+                <tr>
+                    <td>{{message.author}}</td>
+                    <td>{{message.content}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Post your own message!</h2>
+    <form action="/newMessage" method="post">
+    {% csrf_token %}
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author"><br>
+        <label for="content">Content:</label>
+        <input type="text" name="content" id="content"><br>
+        <input type="submit" value="Post">
+    </form>
+</body>
+</html>
