@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a student to all bootcamp courses</title>
+    
+    {% load static %}
+    <link rel="stylesheet" text="text/css" href="{% static 'css/stylez.css' %}">
+</head>
+<body>
+    <div id="container">
+        <div class="new_course">
+            <h2>Add a new course</h2>
+            <form action="/courses/addCourse" method="post">
+            {% csrf_token %}
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+                <label for="desc">Description: </label>
+                <input type="text" name="desc" id="desc">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <div class="list-of-courses">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        {% if messages %}
+                        <ul class="emessages">
+                            {% for message in  messages%}
+                                <li {% if message.tags %} class="{{message.tags}}"{% endif %}>
+                                    {{message}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <th>Description</th>
+                        <th>Date Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for course in all_courses %}
+                    <tr class="active-row">
+                        <td>{{course.name}}</td>
+                        <td>{{course.desc.content}}</td>
+                        <td>{{course.created_at|date:'M d, Y P'}}</td>
+                        <td><a href="/courses/destroy/{{course.id}}">Remove |</a></td>
+                        <td><a href="/courses/{{course.id}}">Comments</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{course.name}}</title>
+    <style>
+        #container button a{
+            text-decoration: none;
+            color: black;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>{{course.name}} - Comments</h3>
+        <h3>Description:</h3><p>{{course.desc.content}}</p>
+        <form action="/courses/{{course.id}}/comment" method="post" id="postcomment">
+        {% csrf_token %}
+            <textarea name="content" cols="50" rows="10">Comment here</textarea>
+            <input type="submit" value="Add Comment">
+        </form>
+        <button><a href="/courses" role="button">Go Back</a></button>
+    </div>
+    <div class="comm-container">
+        <h3>All Comments</h3>
+        {% for comment in course.has_comments.all %}
+            <p>{{comment.content}}</p>
+            <footer>{{comment.created_at|date:'M d, Y P'}}</footer>
+        {% endfor %}
+    </div>
+</body>
+</html>
