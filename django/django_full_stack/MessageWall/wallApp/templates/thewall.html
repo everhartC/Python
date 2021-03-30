@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/wallStylez.css' %}>
+    <title>The Wall - Message Board</title>
+</head>
+<body>
+    <div id="container">
+        <div class="banner">
+            <h2>CodingDojo Wall</h2>
+            <h3>Welcome, {{request.session.name}}</h3>
+            <button><a href="/logout">Log Out</a></button>
+        </div>
+        <div id="writepost">
+            <h2>Post a Message</h2>
+            <form action="/wall/message_post" method="post">
+            {% csrf_token %}
+                <textarea name="message" cols="60" rows="8"></textarea>
+                {% comment %} <input type="hidden" name="userid" value="{{user.id}}"> {% endcomment %}
+                <input type="submit" value="Post">
+            </form>
+        </div>
+        <div id="posts">
+            <h2>Recent Messages</h2>
+            {% for post in all_messages %}
+            <div class="one_post">
+                <h4 class="msg_poster">Message by {{post.user_msg.fname}} - {{post.created_at}}</h3>
+                <p class="post">{{post.msg}}</p>
+                <form class="commentform" action="/wall/postComment/{{post.id}}" method="post">
+                {% csrf_token %}
+                    <h3 class="header">Post a Comment</h3>
+                    <textarea name="comment" cols="50" rows="3"></textarea>
+                    <input type="submit" value="Post">
+                </form>
+                <div class="cmtclass">
+                {% for comment in post.cmt.all %}
+                    <h3 class="recent">Recent Comments</h3>
+                    <p>{{comment.cmt}}</p>
+                    <p>Commented by: {{comment.user_cmt.fname}} {{comment.user_cmt.lname}}</p>
+                    <button><a href="/wall/delete/{{comment.id}}">Delete</a></button>
+                {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

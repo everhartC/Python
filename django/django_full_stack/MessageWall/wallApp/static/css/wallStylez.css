@@ -1,0 +1,70 @@
+#container {
+    width: 1000px;
+    height: 1600px;
+    margin: 0;
+    padding: 0;
+    outline: dotted red 2px;
+}
+
+.banner {
+    height: 50px;
+    width: 100%;
+    outline: solid black 2px;
+    padding-bottom: 5px;
+    /* text-align: justify; */
+    /* vertical-align: top; */
+}
+
+.banner h2 {
+    margin-left: 20px;
+    text-align: left;
+    vertical-align: middle;
+    /* outline: dotted blue 2px; */
+    display: inline-block;
+}
+
+.banner h3 {
+    text-align: right;
+    vertical-align: middle;
+    /* outline: dotted orange 2px; */
+    display: inline-block;
+    margin-left: 40%;
+}
+
+.banner button {
+    margin: 0px 5px 0px 10%;
+}
+
+#posts {
+    background-color: lightgray;
+    padding: 25px;
+    margin: 25px;
+}
+
+.one_post {
+    background-color: teal;
+    padding: 25px;
+    margin: 25px;
+    min-height: 100px;
+}
+
+.post {
+    font-size: 16pt;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.msg_poster {
+    text-align: left;
+    margin-left: 10%;
+}
+
+#writepost {
+    text-align: left;
+    margin-left: 5%;
+}
+
+.one_post .cmtclass {
+    text-align: left;
+    margin-left: 15%;
+}
