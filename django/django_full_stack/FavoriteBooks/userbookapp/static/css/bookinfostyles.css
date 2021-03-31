@@ -1,0 +1,58 @@
+#container {
+    height: 1000px;
+    width: 1000px;
+    outline: dotted red 2px;
+}
+
+.header {
+    border-bottom: solid black 2px;
+    height: 50px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.header h2{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 5%;
+}
+
+#container .header h3{
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    /* outline: dotted orange 2px; */
+    /* display: inline-block; */
+    margin-left: 60%;
+}
+
+.book_info {
+    width: 30%;
+    height: 200px;
+    padding: 10px;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.book_info h2 {
+    outline: solid black 1px;
+    text-align: center;
+}
+
+.user_info {
+    width: 35%;
+    height: auto;
+    display: inline-block;
+    margin-left: 25%;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.user_info p {
+    text-align: center;
+}
+
+#container h3 {
+    margin-left: 20px;
+}
