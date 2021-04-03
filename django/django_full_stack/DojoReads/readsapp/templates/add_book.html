@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/addbookstyle.css' %}>
+    <title>Add Book and Review</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>Welcome, {{request.session.name}}</h2>
+            <p><a href="/books">Home</a></p>
+            <p><a href="/logout">Log Out</a></p>
+        </div>
+        <div class="addbook">
+            <h3>Add a New Book Title and a Review:</h3>
+            <form action="/addbook" method="post">
+            {% csrf_token %}
+                <label for="title">Book Title</label>
+                <input type="text" name="title">
+
+                <label for="addauthor">Author:</label>
+                <input type="text" name="addauthor">
+
+                <label for="review">Review:</label>
+                <textarea name="review" cols="40" rows="6"></textarea>
+
+                <label for="rating">Rating:</label>
+                {% comment %} <select name="rating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="2">1</option>
+                    <option value="1">1</option>
+                    <option value="1">1</option> {% endcomment %}
+                <input type="number" name="rating" min="1" max="5" step="1" value="3" size="4">
+                <input type="submit" value="Add Book and Review">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

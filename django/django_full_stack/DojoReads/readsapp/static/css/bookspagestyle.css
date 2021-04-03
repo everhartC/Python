@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    height: 1000px;
+    width: 1000px;
+    /* outline: dotted red 2px; */
+}
+
+.header {
+    border-bottom: solid black 2px;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+}
+
+.header h2{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 5%;
+    margin-right: 40%;
+}
+
+.header p{
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    /* outline: dotted orange 2px; */
+    margin: 20px 10px 5px 0;
+
+}
+
+.mainsection {
+    width: 98%;
+    height: 600px;
+    padding: 10px 5px 5px 20px;
+    outline: dotted blue 2px;
+}
+
+.reviews {
+    width: 40%;
+    padding: 10px;
+    outline: solid black 2px;
+}
+
+.reviews h4 {
+    margin-top: 10px;
+}
+
+.reviews p {
+    margin-left: 5%;
+    margin-top: 10px;
+}

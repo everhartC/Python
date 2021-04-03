@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/book_infostyle.css' %}>
+    <title>Add Book and Review</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>Welcome, {{request.session.name}}</h2>
+            <p><a href="/books">Home</a></p>
+            <p><a href="/logout">Log Out</a></p>
+        </div>
+        <div class="info">
+            <div class="bk">
+                <h2>{{book.title}}</h3>
+                <h4>Author: {{book.author}}</h4>
+            </div>
+            <div class="rvs">
+                <h3>Reviews:</h3>
+                <div class="rv">
+                {% for review in book.book_reviews.all %}
+                    <p>Rating: {{review.rating}}</p>
+                    <p><a href="/users/{{review.reviewer.id}}">{{review.reviewer.fname}}</a> says {{review.comment}}</p>
+                    <p>Posted on {{review.created_at}}</p>
+                    {% if request.session.user_id == review.reviewer.id %}
+                        <a class="thisuser" href="/deleteReview">Delete this Review</a>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            <div class="addreview">
+                <form action="/addReview" method="post">
+                {% csrf_token %}
+                    <label for="rev">Add a Review</label>
+                    <textarea name="rev" cols="40" rows="5"></textarea>
+                    <label for="revrating">Rating:</label>
+                    <input type="number" name="revrating" min="1" max="5" step="1" required>
+                    <input type="submit" value="Submit Review">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
