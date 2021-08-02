@@ -1,47 +1,38 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
 
 # Create your views here.
-def index(request):
+def home(request): #GET Retrieves all objects stored in the Course DB and renders them to homepage.html
     context = {
-        'all_courses': Courses.objects.all()
+        'all_courses': Course.objects.all()
     }
+    return render(request, 'homepage.html', context)
 
-    return render(request, 'index.html', context)
-
-def addCourse(request):
-    errors = Courses.objects.course_validator(request.POST)
-    if len(errors):
+# POST Get all of the form data from homepage and 
+# redirect back to homepage to display new information
+def addCourse(request): 
+    errors = Course.objects.validator(request.POST)
+    if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
+        return redirect('/')
     else:
-        course = Courses.objects.create(name=request.POST['name'])
-        desc = Description.objects.create(content=request.POST['desc'])
-        course.desc = desc
-        course.save()
-    
-    return redirect('/courses')
+        new_course = Course.objects.create(name=request.POST['name'])
+        new_course_desc = Description.objects.create(content=request.POST['desc'])
+        new_course.desc = new_course_desc
+        new_course.save()
+    return redirect('/')
 
-def destroyCourse(request, courseID):
-    if request.method == 'GET':
+
+def deleteCourse(request, courseID):
+    if request.method == "GET":
         context = {
-            'course': Courses.objects.get(id=courseID)
+            'course': Course.objects.get(id=courseID)
         }
-        return render(request, 'remove_course.html', context)
+        return render(request, 'delete.html', context)
 
-    if request.method == 'POST':
-        course = Courses.objects.get(id=courseID)
-        course.delete()
-        return redirect('/courses')
-
-def comments(request, courseID):
-    context = {
-        'course': Courses.objects.get(id=courseID)
-    }
-    return render(request, 'comments.html', context)
-
-def addComment(request, courseID):
-    Comment.objects.create(content=request.POST['content'], 
-        course=Courses.objects.get(id=courseID))
-    return redirect(f"/courses/{courseID}")
+    if request.method == "POST":
+        course_to_del = Course.objects.get(id=courseID)
+        course_to_del.delete()
+    return redirect('/')

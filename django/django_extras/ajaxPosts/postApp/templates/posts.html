@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {% load static %}
+    {% comment %} <script defer src="{% static 'js/main.js' %}"></script> {% endcomment %}
+    <title>Ajax Posts</title>
+</head>
+<body>
+    <h1>My Posts</h1>
+
+    <div class="posts">
+        {% for post in posts %}
+        <div class="post">
+            <p>{{post.content}}</p>
+        </div>
+        {% endfor %}
+    </div> 
+
+    <form action="{% url 'posts' %}" method="post" id="post-form">
+    {% csrf_token %}
+        <label for="content">Add a Note:</label>
+        {{ post_form.as_table}}
+        <input type="submit" value="Post It!">
+    </form>
+    
+</body>
+<script src="{% static 'js/main.js' %}"></script>
+</html>

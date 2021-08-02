@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    height: 600px;
+    width: 1000px;
+    outline: dotted red 2px;
+}
+
+.header {
+    border-bottom: solid black 2px;
+    height: 50px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.header h2{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 5%;
+    /* margin-top: 15px; */
+}
+
+.header p{
+    display: inline-block;
+    text-align: right;
+    outline: dotted orange 2px;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.header p:last-of-type {
+    margin-left: 50%;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    outline: dotted green 2px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50px auto 3% 17%;
+    grid-template-areas: "hd hd hd" 
+                        "main main main" 
+                        "foot foot foot"
+                        "above above above";
+}
+
+header {
+    grid-area: hd;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: foot;
+}
+
+.welcomepage {
+    margin-top: 15px;
+    margin-left: 10%;;
+    width: 40%;
+    padding: 25px 50px;
+    background-color: gray;
+}
+
+.foot-list {
+    display: inline-block;
+    outline: dotted green 2px;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 5px 10px 5px;
+}
+
+h4.above {
+    grid-area: above;
+    vertical-align: top;
+    text-align: center;
+}

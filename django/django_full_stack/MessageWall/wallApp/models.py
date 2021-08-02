@@ -87,3 +87,4 @@ class Comment(models.Model):
 
     def __repr__(self):
         return f"User: {self.user_cmt}\nMessage ID: {self.msg_cmt}\nComment: {self.cmt}"
+

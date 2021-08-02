@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/newUserstyles.css' %}">
+    <title>New User</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>User Dashboard - Admin</h2>
+            <p><a href="/users/show/{{request.session.user_id}}">Profile</a></p>
+            <p><a href="/logout">Log Out</a></p>
+        </div>
+        <h3>Add a new user</h3>
+        <button><a href="/dashboard/admin"></a></button>
+        <div class="new-user">
+            <form action="/users/new" method="post">
+            {% csrf_token %}
+                <label for="fname">First Name:</label>
+                <input type="text" name="fname">
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname">
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+                <label for="confpw">Confirm Password:</label>
+                <input type="password" name="confpw">
+                <input type="submit" value="Add User">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+    

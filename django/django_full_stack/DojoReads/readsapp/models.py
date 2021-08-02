@@ -31,4 +31,3 @@ class Review(models.Model):
 
     def __repr__(self):
         return f"Review: {self.comment}, Rating: {self.rating}"
-

@@ -37,6 +37,14 @@
                 {% endif %}
             {% endfor %}
         </div>
+
+        <div class="booksbylike">
+            <h2>Books by Likes</h2>
+            {% for l in likes_per_book %}
+            <p>Title: {{l.title}}</p>
+            <p># Likes: {{l.users_who_fav.count}}</p>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

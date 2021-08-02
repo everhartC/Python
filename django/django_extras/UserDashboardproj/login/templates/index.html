@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/logindexstyles.css' %}">
+    <title>Home Page</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="header">
+                <h2>User Dashboard</h2>
+                <p><a href="/dashboard">Home</a></p>
+                <p><a href="/logout">Log Out</a></p>
+            </div>
+        </header>
+        <main>
+            <div class="welcomepage">
+                <h2>Welcome to the Test</h2>
+                <button><a href="/login">Start</a></button>
+            </div>
+        </main>
+        <footer>
+            <div class="foot-list">
+                <h4 class="above">Manage Users</h4>
+                <p>Using this application, you'll learn how to add, remove,
+                and edit users for the application</p>
+
+                <h4 class="above">Leave Messages</h4>
+                <p>Users will be able to leave a message to another user
+                using this aplication</p>
+
+                <h4 class="above">Edit User Information</h4>
+                <p>Admins will be able to edit another user's Information
+                (email address, first name, last name, etc)</p>
+            </div>
+        </footer>
+            
+    </div>
+</body>
+</html>

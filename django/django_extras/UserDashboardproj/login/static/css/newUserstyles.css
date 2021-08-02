@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    height: 600px;
+    width: 1000px;
+    outline: dotted red 2px;
+}
+
+.header {
+    border-bottom: solid black 2px;
+    height: 50px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.header h2{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 5%;
+    /* margin-top: 15px; */
+}
+
+.header p{
+    display: inline-block;
+    text-align: right;
+    outline: dotted orange 2px;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.header p:last-of-type {
+    margin-left: 50%;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}

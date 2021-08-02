@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashStyles.css' %}">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h2>User Dashboard</h2>
+            <p><a href="/users/show/{{user_id}}">Profile</a></p>
+            <p><a href="/logout">Log Out</a></p>
+        </div>
+        <h2>Manage User</h2>
+        <main>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created_at</th>
+                        <th>Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr class="active-row">
+                        <td>{{user.id}}</td>
+                        {% if user.id == request.session.user_id %}
+                        <td><a href="/users/edit">{{user.fname}} {{user.lname}}</a></td>
+                        {% else %}
+                        <td>{{user.fname}} {{user.lname}}</td>
+                        {% endif %}
+                        <td>{{user.email}}</td>
+                        <td>{{user.created_at}}</td>
+                        {% if user.level == False %}
+                        <td>Normal</td>
+                        {% else %}
+                        <td>Admin</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

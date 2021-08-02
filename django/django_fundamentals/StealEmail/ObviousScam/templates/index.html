@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Are You Falling For This!?</title>
+</head>
+<body>
+    <h1>Enter your email and pw to lose everything</h1>
+    <form action="/suckers" method="post">
+    {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="text" name="email">
+        <label for="password">Password:</label>
+        <input type="text" name="password">
+        <input type="submit" value="Say Goodbye!">
+    </form>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        {% for sucker in Suckers %}
+            <tr>
+                <td>{{sucker.email}}</td>
+                <td>{{sucker.password}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

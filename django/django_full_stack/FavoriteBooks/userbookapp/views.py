@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.db.models import Count
 from django.contrib import messages
 from .models import UserManager, BookManager, User, Book
 
@@ -37,10 +38,11 @@ def login(request):
 def books(request):
     if not request.session['user_id']:
         return redirect('/')
-
+    listlikes = Book.objects.filter().annotate(num_likes=Count('users_who_fav')).order_by('-num_likes')
     context = {
         'all_books': Book.objects.all().order_by('-created_at'),
         'this_user': User.objects.get(id=request.session['user_id']),
+        'likes_per_book': listlikes,
     }
     return render(request, "bookWall.html", context)
 
